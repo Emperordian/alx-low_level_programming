@@ -24,7 +24,7 @@ int main(void)
 			putchar(m);
 			putchar(l);
 
-			if (c != 999)
+			if (c != 789)
 			{
 				putchar(',');
 				putchar(' ');
