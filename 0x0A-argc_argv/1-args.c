@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+/**
+ * main - the start point
+ * @argc: arg counter
+ * @argv: arg vector
+ * Return: 0 on success
+ */
+int main(int argc, char *argv[] __attribute__((unused)))
+{
+	printf("%d\n", argc);
+	return (0);
+}
