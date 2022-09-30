@@ -2,12 +2,12 @@
 
 /**
  * main - a function that prints its name
- * @agrc: agrument counter
- * @agrv: agrument vector
+ * @argc: the argument count
+ * @argv: the argument vector
  *
- * return: 0 for  success
+ * Return: 0 for success
  */
-int main(int argc __attribute__((unused)), char *agrv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
 	printf("%s\n", *argv);
 
