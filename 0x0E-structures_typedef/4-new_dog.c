@@ -6,46 +6,48 @@
  * @age: second member.
  * @owner: thrid member.
  *
- * Return: NULL if fail.
+ * Return: the new dog or NULL at failure
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int i, lenN, lenO;
+	int i, j, k;
+	dog_t *husky;
 
-	struct dog *n_dog = NULL;
+	for (i = 0; name[i] != '\0'; i++)
+		;
+	i++;
+	for (j = 0; owner[j] != '\0'; j++)
+		;
+	j++;
 
-	lenO = 0;
-	while (name[lenN] != '\0')
-		lenN++;
-	lenO = 0;
-	while (owner[lenO] != '\0')
-		lenO++;
-
-	n_dog = malloc(sizeof(struct dog));
-	if (n_dog == NULL)
+	husky = malloc(sizeof(dog_t));
+	if (husky == 0)
 	{
-		free(n_dog);
+		free(husky);
 		return (NULL);
 	}
-	n_dog->name = malloc(lenN + 1);
-	if (n_dog->name == NULL)
+	husky->name = malloc(sizeof(husky->name) * i);
+	if (husky->name == 0)
 	{
-		free(n_dog->name);
-		free(n_dog);
+		free(husky->name);
+		free(husky);
 		return (NULL);
 	}
-	n_dog->owner = malloc(lenO + 1);
-	if (n_dog->owner == NULL)
+	for (k = 0; k < i; k++)
+		husky->name[k] = name[k];
+	husky->name[k] = name[k];
+	husky->age = age;
+	husky->owner = malloc(sizeof(husky->owner) * j);
+	if (husky->owner == 0)
 	{
-		free(n_dog->name);
-		free(n_dog->owner);
-		free(n_dog);
+		free(husky->owner);
+		free(husky->name);
+		free(husky);
 		return (NULL);
 	}
-	for (i = 0, i <= lenN, i++)
-		n_dog->name[i] = name[i];
-	for (i = 0, i <= lenO; i++)
-		n_dog->owner[i] = owner[i];
-	n_dog->age = age;
-	return (n_dog);
+	for (k = 0; k < j; k++)
+		husky->owner[k] = owner[k];
+	husky->owner[k] = owner[k];
+
+	return (husky);
 }
