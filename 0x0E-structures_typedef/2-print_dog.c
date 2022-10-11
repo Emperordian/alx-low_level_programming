@@ -1,15 +1,12 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "dog.h"
+#include <stdio.h>
 
-/*
- * print_dog - prints struct dog.
+/**
+ * print_dog - prints struct dog
+ * @d: pointer to the struct dog elements
  *
- * @d: pointer to the struct.
- *
- * Return: void.
+ * Return: result or nil if NULL
  */
-
 void print_dog(struct dog *d)
 {
 	if (d == 0)
