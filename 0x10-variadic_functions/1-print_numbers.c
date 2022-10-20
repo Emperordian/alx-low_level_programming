@@ -1,31 +1,24 @@
-#include <stdarg.h>
+#include "variadic_functions.h"
 #include <stdio.h>
 
 /**
- * print_numbers - print numbers
- * @separator: item to use ot separate numbers
- * @n: number of argument to sum
- * Return: sum of all argument
- */
-
-
+* print_numbers - Prints numbers
+* @separator: Pointer to string
+* @n: Number of integers passed
+*/
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	unsigned int i = 0;
-	va_list ap;
+	va_list list;
+	unsigned int i;
 
-	va_start(ap, n);
-
-	if (!separator)
-		return;
+	va_start(list, n);
 
 	for (i = 0; i < n; i++)
 	{
-		printf("%d%s", va_arg(ap, int), i != (n - 1) ? separator : "");
+		printf("%d", va_arg(list, int));
+		if (separator != NULL && i < n - 1)
+			printf("%s", separator);
 	}
-
-
-	va_end(ap);
-	putchar('\n');
-
+	printf("\n");
+	va_end(list);
 }
